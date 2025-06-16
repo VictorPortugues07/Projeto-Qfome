@@ -1,0 +1,547 @@
+.dashboard {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.dashboard-header h2 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.refresh-btn {
+  padding: 8px 15px;
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.refresh-btn:hover {
+  background-color: #5a6268;
+}
+
+/* Loading, Error e Empty States */
+.dashboard-loading,
+.dashboard-error,
+.dashboard-empty {
+  text-align: center;
+  padding: 40px;
+  color: #ffffff;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.retry-btn {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.retry-btn:hover {
+  background-color: #0056b3;
+}
+
+/* Métricas Principais */
+.metrics-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.metric-card {
+  background: #2A2C2F;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  transition: transform 0.3s;
+}
+
+.metric-card:hover {
+  transform: translateY(-2px);
+  background: #3A3C3F;
+}
+
+.metric-icon {
+  font-size: 2.5rem;
+  color: #dc3545;
+}
+
+.metric-content h3 {
+  margin: 0 0 10px 0;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.metric-number {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 5px;
+}
+
+.metric-variation {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.variacao-positiva {
+  color: #28a745;
+}
+
+.variacao-negativa {
+  color: #dc3545;
+}
+
+.variacao-neutra {
+  color: #6c757d;
+}
+
+.faturamento {
+  border-left: 4px solid #007bff;
+}
+
+.lucro {
+  border-left: 4px solid #28a745;
+}
+
+.pedidos {
+  border-left: 4px solid #ffc107;
+}
+
+.ticket {
+  border-left: 4px solid #17a2b8;
+}
+
+/* Seção de Pedidos */
+.pedidos-section {
+  background: #2A2C2F;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  margin-bottom: 30px;
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.section-header h3 {
+  margin: 0;
+  color: #ffffff;
+}
+
+.pedidos-count {
+  background-color: #3A3C3F;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.empty-pedidos {
+  text-align: center;
+  padding: 40px;
+  color: #ffffff;
+}
+
+.pedidos-lista {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.pedido-card {
+  border: 1px solid #3A3C3F;
+  border-radius: 8px;
+  padding: 15px;
+  background: #2A2C2F;
+  transition: transform 0.3s;
+}
+
+.pedido-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  background: #3A3C3F;
+}
+
+.pedido-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.pedido-info {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.pedido-id {
+  font-weight: bold;
+  color: #dc3545;
+}
+
+.pedido-cliente {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+.pedido-valor {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #dc3545;
+}
+
+.pedido-details {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.pedido-data {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.pedido-status {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.pedido-status.concluido {
+  background-color: #28a745;
+  color: white;
+}
+
+.pedido-status.pendente {
+  background-color: #ffc107;
+  color: #000;
+}
+
+.pedido-status.cancelado {
+  background-color: #dc3545;
+  color: white;
+}
+
+.pedido-status.a-caminho {
+  background-color: #17a2b8;
+  color: white;
+}
+
+.pedido-itens {
+  margin-bottom: 10px;
+}
+
+.pedido-itens small {
+  color: #ffffff;
+  font-style: italic;
+}
+
+.pedido-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.entregar-btn {
+  padding: 8px 15px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: background-color 0.3s;
+}
+
+.entregar-btn:hover {
+  background-color: #218838;
+}
+
+.cancelar-btn {
+  padding: 8px 15px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  margin-left: 8px;
+  transition: background-color 0.3s;
+}
+
+.cancelar-btn:hover {
+  background-color: #b02a37;
+}
+
+/* Métricas Anuais */
+.annual-metrics {
+  margin-bottom: 30px;
+}
+
+.annual-card {
+  background: #2A2C2F;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.annual-card h3 {
+  margin: 0 0 20px 0;
+  color: #ffffff;
+}
+
+.annual-data {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+}
+
+.annual-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  background: #3A3C3F;
+  border-radius: 4px;
+}
+
+.annual-label {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.annual-value {
+  font-weight: bold;
+  color: #dc3545;
+}
+
+/* Métricas Secundárias */
+.secondary-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.produtos {
+  border-left: 4px solid #6f42c1;
+}
+
+.avaliacoes {
+  border-left: 4px solid #fd7e14;
+}
+
+.metric-details {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.metric-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.metric-detail.warning {
+  color: #dc3545;
+}
+
+.metric-subtitle {
+  font-size: 12px;
+  color: #ffffff;
+}
+
+.rating {
+  color: #ffc107;
+}
+
+/* Alertas */
+.dashboard-alerts {
+  margin-bottom: 30px;
+}
+
+.alert {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 15px;
+  border-radius: 8px;
+  background: #2A2C2F;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.alert.warning {
+  border-left: 4px solid #dc3545;
+}
+
+.alert-icon {
+  font-size: 1.5rem;
+  color: #dc3545;
+}
+
+.alert-content h4 {
+  margin: 0 0 5px 0;
+  color: #ffffff;
+}
+
+.alert-content p {
+  margin: 0;
+  color: #ffffff;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 10px;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: stretch;
+  }
+
+  .refresh-btn {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  .metrics-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .secondary-metrics {
+    grid-template-columns: 1fr;
+  }
+  
+  .annual-data {
+    grid-template-columns: 1fr;
+  }
+  
+  .pedido-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  
+  .pedido-details {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .pedido-actions {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 15px;
+  }
+
+  .entregar-btn,
+  .cancelar-btn {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 8px;
+    padding: 12px;
+    font-size: 16px;
+  }
+
+  .metric-card {
+    padding: 15px;
+  }
+
+  .metric-content {
+    width: 100%;
+  }
+
+  .metric-number {
+    font-size: 1.5rem;
+  }
+
+  .pedidos-section {
+    padding: 15px;
+  }
+
+  .pedido-card {
+    padding: 12px;
+  }
+
+  .pedido-valor {
+    font-size: 1.1rem;
+  }
+
+  .pedido-status {
+    width: 100%;
+    text-align: center;
+    margin-top: 5px;
+  }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+  .dashboard {
+    padding: 5px;
+  }
+
+  .metric-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .metric-icon {
+    margin-bottom: 10px;
+  }
+
+  .annual-item {
+    flex-direction: column;
+    text-align: center;
+    gap: 5px;
+  }
+
+  .pedido-itens small {
+    display: block;
+    text-align: center;
+  }
+}
